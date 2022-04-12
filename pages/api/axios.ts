@@ -3,6 +3,7 @@ import axios from "axios";
 const MAIN_URL = process.env.NEXT_PUBLIC_API_URL;
 const PUBLIC_KEY = process.env.NEXT_PUBLIC_KEY;
 const HASH = process.env.NEXT_PUBLIC_HASH;
+export const limit = 12;
 
 export default axios.create({
     baseURL: MAIN_URL,
@@ -11,4 +12,4 @@ export default axios.create({
         hash: HASH,
         ts: 1
     }
-  });
+});

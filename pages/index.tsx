@@ -1,25 +1,22 @@
 import type { NextPage } from 'next'
+import HomePage from '../components/homePage'
 import { useAppSelector } from '../hooks/toolkit'
 import { selectCharacters, setCharacterData } from '../reduxSlices/characters'
 import { wrapper } from '../store'
-import styles from '../styles/Home.module.css'
 import api from './api'
+import { limit } from './api/axios'
 
-const Home: NextPage = ({ props }: any) => {
+const Home: NextPage = () => {
   const { characters } = useAppSelector(selectCharacters)
 
   return (
-    <div className={styles.container}>
-      {characters.results.map((character: any) => {
-        return <li key={character.id}>{character.name}</li>
-      })}
-    </div>
+    <HomePage characters={characters} />
   )
 }
 
 export const getServerSideProps = wrapper.getServerSideProps(store => async (ctx): Promise<any> => {
   try {
-    const { data } = await api.getCharacters()
+    const { data } = await api.getCharacters({ limit })
     store.dispatch(setCharacterData(data))
   } catch (e) {
     console.log(e);

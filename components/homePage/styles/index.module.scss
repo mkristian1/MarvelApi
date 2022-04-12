@@ -1,0 +1,23 @@
+.list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    &__item {
+        box-shadow: var(--mk-shadow);
+        padding: 10px;
+        border-radius: 8px;
+        max-width: 150px;
+        transition: 0.2s;
+        &:hover {
+            background-color: var(--mk-main);
+        }
+    }
+    &__description {
+        height: 42px;
+        overflow: hidden;
+    }
+    &__avatar {
+        width: 150px;
+        height: 150px;
+    }
+}
