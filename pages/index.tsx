@@ -6,7 +6,7 @@ import { wrapper } from '../store'
 import api from './api'
 import { limit } from './api/axios'
 
-const Home: NextPage = () => {
+const Home: NextPage = (data) => {
   const { characters } = useAppSelector(selectCharacters)
 
   return (
@@ -14,10 +14,12 @@ const Home: NextPage = () => {
   )
 }
 
-export const getServerSideProps = wrapper.getServerSideProps(store => async (ctx): Promise<any> => {
+export const getServerSideProps = wrapper.getServerSideProps(store => async ({ query }): Promise<any> => {
+  
   try {
-    const { data } = await api.getCharacters({ limit })
+    const { data } = await api.getCharacters(query)
     store.dispatch(setCharacterData(data))
+
   } catch (e) {
     console.log(e);
   }

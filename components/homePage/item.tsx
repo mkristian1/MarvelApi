@@ -7,7 +7,6 @@ interface IItem {
 }
 
 const Item: FC<IItem> = ({ character }) => {
-    console.log(character);
 
     return (
         <div className={styles['list__item']}>

@@ -3,6 +3,7 @@
     align-items: center;
     list-style-type: none;
     padding-left: 0;
+    margin: 35px 0;
 }
 
 .rc-pagination-item {
@@ -17,15 +18,13 @@
     cursor: pointer;
 }
 
-
 .rc-pagination-item a {
     text-decoration: none;
     font-weight: 500;
-    color: var(--gx-color-black);
 }
 
 .rc-pagination-item-active {
-    border: solid 1px var(--gx-color-blue);
+    border: solid 1px var(--mk-main);
     font-size: 18px;
 }
 
@@ -34,7 +33,7 @@
 }
 
 .rc-pagination-item-link {
-    border: solid var(--gx-color-gray-midle-lite) 1px;
+    border: none;
     height: 40px;
     width: 40px;
     background: none;
@@ -47,13 +46,11 @@
 
 .rc-pagination-disabled .rc-pagination-item-link::before {
     pointer-events: none;
-    color: var(--gx-color-gray-midle-lite);
 }
 
 .rc-pagination-item-link::before {
     content: "\2039";
     font-size: 22px;
-    color: var(--gx-color-blue);
 }
 
 .rc-pagination-item-link[aria-label="next page"]::before {
@@ -61,7 +58,8 @@
 }
 
 @media screen and (max-width: 400px) {
-    .rc-pagination-item, .rc-pagination-item-link {
+    .rc-pagination-item,
+    .rc-pagination-item-link {
         height: 30px;
         width: 30px;
     }

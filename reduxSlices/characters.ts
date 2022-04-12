@@ -26,7 +26,7 @@ const charactersSlice = createSlice({
                 ...action.payload.characters,
             };
         },
-    }
+    },
 
 })
 
