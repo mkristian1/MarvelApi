@@ -13,15 +13,20 @@ const charactersSlice = createSlice({
             total: 0,
             results: []
         } as ICategory,
+        loading: false as boolean,
     },
     reducers: {
         setCharacterData: (state, action: PayloadAction<ICategory>) => {
             state.characters = action.payload
+        },
+        setLoading: (state, action: PayloadAction<boolean>) => {
+            state.loading = action.payload
         }
     },
     extraReducers: {
         [HYDRATE]: (state, action) => {
-            
+console.log('hydrate,', action.payload.characters);
+
             return {
                 ...state,
                 ...action.payload.characters,
@@ -31,7 +36,7 @@ const charactersSlice = createSlice({
 
 })
 
-export const { setCharacterData } = charactersSlice.actions;
+export const { setCharacterData, setLoading } = charactersSlice.actions;
 
 export const selectCharacters = (state: AppState) => state.characters;
 
