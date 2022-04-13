@@ -3,6 +3,7 @@
 :root {
     --mk-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     --mk-main: #e62429;
+    --text-color: #151515;
 }
 
 body {
@@ -37,4 +38,5 @@ p {
 
 a {
     color: var(--text-color);
+    text-decoration: none;
 }
