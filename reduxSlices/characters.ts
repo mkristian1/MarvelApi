@@ -25,7 +25,6 @@ const charactersSlice = createSlice({
     },
     extraReducers: {
         [HYDRATE]: (state, action) => {
-console.log('hydrate,', action.payload.characters);
 
             return {
                 ...state,
